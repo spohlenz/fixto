@@ -559,6 +559,7 @@ var fixto = (function ($, window, document) {
             childStyle.position = 'fixed';
             childStyle.top = this._mindtop() + this.options.top - computedStyle.toFloat(childStyles.marginTop) + 'px';
             this._$child.addClass(this.options.className);
+            this._$child.trigger("fixto:fix");
             this.fixed = true;
         },
 
@@ -570,6 +571,7 @@ var fixto = (function ($, window, document) {
             childStyle.width = this._childOriginalWidth;
             childStyle.left = this._childOriginalLeft;
             this._$child.removeClass(this.options.className);
+            this._$child.trigger("fixto:unfix");
             this.fixed = false;
         },
 
